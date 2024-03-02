@@ -23,7 +23,8 @@ build() {
 check() {
   cd cffi-$pkgver
   python -m installer --destdir=tmpinstall dist/*.whl
-  PYTHONPATH="$PWD/tmpinstall/usr/lib/python3.11/site-packages" pytest
+  local python_version=$(python -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
+  PYTHONPATH="$PWD/tmpinstall/usr/lib/python${python_version}/site-packages" pytest
 }
 
 package() {
