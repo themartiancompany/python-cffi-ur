@@ -1,3 +1,7 @@
+# SPDX-License-Identifier: AGPL-3.0
+#
+# Maintainer: Truocolo <truocolo@aol.com>
+# Maintainer: Pellegrino Prevete (tallero) <pellegrinoprevete@gmail.com>
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 # Contributor: lilydjwg <lilydjwg@gmail.com>
 
@@ -8,7 +12,9 @@ pkgdesc="Foreign Function Interface for Python calling C code"
 arch=('x86_64')
 url="https://cffi.readthedocs.org/"
 license=('MIT')
-depends=('python-pycparser')
+depends=(
+  'python-pycparser'
+)
 optdepends=('python-setuptools: "limited api" version checking in cffi.setuptools_ext')
 makedepends=('python-build' 'python-installer' 'python-setuptools' 'python-wheel')
 checkdepends=('python-pytest')
@@ -36,3 +42,4 @@ package() {
   python -m installer --destdir="$pkgdir" dist/*.whl
   install -Dm644 LICENSE -t "$pkgdir"/usr/share/licenses/$pkgname/
 }
+
