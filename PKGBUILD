@@ -75,7 +75,7 @@ package() {
   # remove files created during check()
   # for reproducible SOURCES.txt
   rm \
-    -r \
+    -rf \
     testing/cffi{0,1}/__pycache__/
   python \
     -m installer \
